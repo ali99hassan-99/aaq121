@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج جمع البيانات</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="form-container">
+        <h2>نموذج ارسال البيانات</h2>
+        <form id="dataForm">
+            <div class="form-group">
+                <label for="name">الاسم الثلاثي:</label>
+                <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+                <label for="motherName">اسم الأم:</label>
+                <input type="text" id="motherName" required>
+            </div>
+            <div class="form-group">
+                <label for="birthProvince">محافظة الولادة:</label>
+                <input type="text" id="birthProvince" required>
+            </div>
+            <div class="form-group">
+                <label for="phone">رقم الهاتف:</label>
+                <input type="tel" id="phone" required>
+            </div>
+            <button type="button" id="saveButton">إرسال البيانات</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("saveButton").addEventListener("click", async function () {
+            const name = document.getElementById("name").value;
+            const motherName = document.getElementById("motherName").value;
+            const birthProvince = document.getElementById("birthProvince").value;
+            const phone = document.getElementById("phone").value;
+
+            if (!name || !motherName || !birthProvince || !phone) {
+                alert("يرجى ملء جميع الحقول!");
+                return;
+            }
+
+            const response = await fetch("/save-data", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ name, motherName, birthProvince, phone })
+            });
+
+            if (response.ok) {
+                alert("تم حفظ البيانات بنجاح!");
+                document.getElementById("dataForm").reset();
+            } else {
+                alert("حدث خطأ أثناء حفظ البيانات.");
+            }
+        });
+    </script>
+</body>
+</html>

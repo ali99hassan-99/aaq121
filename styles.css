@@ -1,0 +1,109 @@
+/* إعدادات عامة */
+body {
+    font-family: 'Cairo', Arial, sans-serif;
+    background: linear-gradient(135deg, #74ebd5, #acb6e5);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #333;
+}
+
+/* الحاوية الرئيسية */
+.form-container {
+    background: #ffffff;
+    padding: 25px 35px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* العنوان */
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #4a90e2;
+}
+
+/* المجموعات */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+/* تسميات الحقول */
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+    color: #555;
+    font-weight: bold;
+    text-align: right; /* جعل النصوص تصطف إلى اليمين */
+
+}
+
+/* حقول الإدخال */
+input[type="text"], input[type="tel"] {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    background: #f7f7f7;
+    color: #333;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus {
+    border-color: #4a90e2;
+    background: #fff;
+    box-shadow: 0 0 8px rgba(74, 144, 226, 0.3);
+}
+
+/* الزر */
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(to right, #4a90e2, #74ebd5);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(74, 144, 226, 0.3);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: linear-gradient(to right, #74ebd5, #4a90e2);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.5);
+    transform: scale(1.03);
+}
+
+/* ملائمة الأجهزة */
+@media (max-width: 768px) {
+    .form-container {
+        padding: 20px 25px;
+    }
+
+    .form-container h2 {
+        font-size: 1.5rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+}
